@@ -10,7 +10,7 @@ from transformers import pipeline
 # print(result)
 
 # ner = pipeline('ner', aggregation_strategy="simple")
-# result = ner("I'm Yi Chen, working in Cisco and in Prague")
+# result = ner("I'm Bla, working in bla and in bla")
 
 # print(result)
 
