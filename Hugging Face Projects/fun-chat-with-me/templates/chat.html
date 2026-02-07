@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-center container mt-5">
+    <div class="wrapper">
+        <div class="main">
+             {%if conversations%}
+                <div class="px-2 scroll">
+                    {%for item in conversations%}
+                    <div class="d-flex align-items-center">
+                        <div class="text-left pr-1"><img src="https://img.icons8.com/color/40/000000/guest-female.png" width="30" class="img1" /></div>
+                            <div class="pr-2 ps-3"> <span class="name">English</span>
+                                <p class="msg">{{item['text']}}</p>
+                            </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center">
+                        <div class="text-left pr-1"><img src="https://img.icons8.com/color/40/000000/guest-female.png" width="30" class="img1" /></div>
+                            <div class="pr-2 ps-3 translate-text"> <span class="name">Czech</span>
+                                <p class="msg translate-text">{{item['czech']}}</p>
+                            </div>
+                    </div>
+                    
+                    {%if item['type'] == 'message'%}
+                    <div class="text-center"><span class="between">Message at {{item['time']}}</span></div>
+                    {%else%}
+                    <div class="text-center"><span class="between">Recording at {{item['time']}}</span></div>
+                    {%end%}
+                    {%end%}
+                </div>
+             {%end%}
+                <nav class="navbar bg-white navbar-expand-sm d-flex align-items-center px-2"> 
+                    <input id='input-text' type="text" name="text" class="form-control input-form-style my-2" placeholder="Type a message...">
+                    <button type="submit" class="btn btn-outline-secondary mic-btn ms-2 submit-text-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                            <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+                        </svg>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary mic-btn record-btn ms-2" id="mic-btn">
+                        <img class="mic-img" src="{{ static_url('mic.png') }}" />
+                    </button>
+                </nav>
+        </div>
+    </div>
